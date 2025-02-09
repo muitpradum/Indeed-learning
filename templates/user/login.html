@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block childpage %}
+<style>
+    .form-control{
+        height: 50px;
+        background:white;
+    }
+    .a{
+        background: whitesmoke;
+    }
+    </style>
+<div class="text-center fs-2 p-2" >
+   Student<b> Login <i class="fa-solid fa-right-to-bracket"></i></b>
+</div>
+<div class="row">
+    <div class="container-fluid py-2">
+        <div class="row">
+            <div class="col-sm-6 mx-auto a py-4">
+                <form method="post">
+                    {% csrf_token %}
+                    USERNAME:<input type="email" name="email" required placeholder="USERNMAE.." class="form-control">
+                    PASSWORD:<input type="password" name="passwd" required placeholder="Password.." class="form-control"><br/>
+                    <input type="submit" value="LOGIN" class="form-control rounded-pill bg-mycolor1">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

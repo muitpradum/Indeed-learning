@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block childpage %}
+<style>
+    .btn {
+        background: #ffe0b2;
+    }
+
+    .ra {
+        background: whitesmoke;
+        border-radius: 5px;
+        min-height: 300px;
+        width: 900px;
+    }
+
+    .r {
+        border-radius: 5px;
+    }
+
+    .rs {
+        border-radius: 8px;
+        background: white;
+    }
+</style>
+<div class="a">
+    <div class="container-fluid py-2 ">
+        <div class="row">
+            <div class="col-sm-12 fs-5  text-center py-2">
+                <h4><b class="fs-3"><u>Contact</b></u> With Us</h4>
+
+                <p class="sectionContent">
+                    You may contact us by contact number or fill this form any time you need professional support
+                    or<br />
+                    have any question.
+                </p>
+            </div>
+            <div class="container-fluid ra py-3 px-4 ">
+                <div class="row">
+                    <div class="col-sm-6 r py-2 fs-4">
+                        <form method="post">
+                            {% csrf_token %}
+                            <u>Send</u><b> Your Message </b><br/>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    Name:<input type="text" name="name" placeholder="Name..." class="form-control"
+                                        required />
+                                </div>
+                                <div class="col-sm-6">
+                                    Email:<input type="email" name="email" placeholder="Email..." class="form-control"
+                                        required />
+                                </div>
+                            </div>
+                            Mobile:<input type="number" name="mobile" placeholder="Mobile..." class="form-control"
+                                required />
+                            Message:<textarea name="msg" placeholder="Message" class="form-control"></textarea><br />
+                            <input type="submit" value="Save" class=" btn form-control">
+                        </form>
+                    </div>
+                    <div class="col-sm-6 rs py-1 ">
+                        <b class="fs-4">Contact <u> Info</u></b><br />
+                        <div class="px-3">
+
+                            <b class="fs-5"><i class="fas fa-map-marker-alt"></i> Offic <u>Address</u>
+                                </b><br />
+                            <div class="px-5">
+                                <p>
+                                    Plot No-44, Behind H.P <br />Petrol Pump,<br>
+                                    Tedhi Pulia Ring Rd, Sector 5,<br>
+                                    Vikas Nagar, Lucknow <br>
+                                    Uttar Pradesh 226022
+                                </p>
+                            </div>
+                            <b class="fs-5">
+                                <i class="fa-solid fa-phone"></i> Call <u>Us<u></b><br />
+                            <div class="px-5">
+                                <p>
+                                    <a href="tel:+91 7007237006">+91 7007237006</a><br />
+                                    <a href="tel:+91 8052978684">+91 8052978684</a>
+                                </p>
+                            </div>
+                            <b class="fs-5"><i class="fa-solid fa-envelope"></i> Mail <u>Us</u></b>
+                            <div class="px-5">
+                                <p>
+                                    <a href="mailto:techpilelko@gmail.com">techpilelko@gmail.com</a><br />
+                                    <a href="mailto:hr@techpile.in">hr@techpile.in</a>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

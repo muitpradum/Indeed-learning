@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block childpage %}
+<div class="text-center fs-2 py-2">
+    Success<b class="txt-mycolor"> Students</b>
+</div>
+<div class="row">
+    <div class="col-sm-10 mx-auto">
+        <form>
+        <div class="row">
+            <div class="col-sm-5">
+                College
+                <select class="form-control" name="college">
+                    <option>--Select College--</option>
+                    {% for i in cdata %}
+                    <option value="{{i.id}}">{{i.college_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-sm-5">
+                Training Session
+                <select class="form-control" name="year">
+                    <option>--Select--</option>
+                    {% for i in sdata %}
+                    <option value="{{i.id}}"> {{i.session}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-sm-2 py-4">
+                <input type="submit" value="Search" class="btn form-control bg-mycolor1 text-light"/>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-10 mx-auto py-3">
+        <div class="row py-3 mx-3" style="background: #deedec; max-height:760px;">
+            {% for i in pdata %}
+            <div class="col-lg-3 col-md-6 col-sm-12">
+                <div class="card" style="height: 300px;">
+                    <img src="/{{i.student_picture}}" style="max-height: 150px;"class="card-img-top"/>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b>{{i.student_name}}</b><br>
+                            <small>{{i.batch}}{{i.session}}</small><br>
+                            {{i.company_name}}<img src="/{{i.company_logo}}"class="img-thumbnail" style="height: 50px;">
+                            <br>
+                            {{i.college}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block studentzone %}
+{% if not request.session.user %}
+<script>
+     alert('You have to login first....');
+     location.href='/user/login/'
+     </script>
+{% endif %}
+<style>
+    #frm{
+        display: none;
+    }
+        
+    </style>
+    
+<script>
+    function demo()
+    {
+        document.getElementById("frm").style.display="block"
+    }
+</script>
+<div class="text-center fs-2 mt-2">Your <b class=""txt-mycolor1> Profile</b></div>
+<div class="row">
+    <div class="col-sm-7 mx-auto py-2">
+{% for i in udata %}
+        <!-- stard Card-->
+        <div class="card mb-3 p-3">
+            <div class="row g-0">
+              <div class="col-md-4 p-3">
+                <img src="/{{i.profile}}" style="height: 180px;" class="img-fluid rounded-start">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body ">
+                  <p class="card-text" style="line-height: 28px; font-size:14px ;">
+                    <i class="fa-solid fa-user"></i> {{i.name}}<br/>
+                    <i class="fa-solid fa-phone"></i>{{i.mobile}}<br/>
+                    <i class="fa-solid fa-key"></i> {{i.passwd}}<br/>
+                    <i class="fa-solid fa-city"></i> {{i.college}}<br/>
+                    <a href="#" class="btn btn-dark text-light" onclick="demo()">Edit Profile <i class="fa-solid fa-pen-to-square btn-sm"></i></a>
+                    
+                </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End card-->
+          {% endfor %}
+    </div>
+</div>
+<div class="row py-4" id="frm" style="background: wheat;">
+    <div class="col-sm-6 mx-auto">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            Name
+            <input type="text" name="name" required placeholder="Name.." class="form-control"/>
+            Password
+            <input type="password" name="passwd" required placeholder="Password.." class="form-control"/>
+            Mobile (Whatsapp No )
+            <input type="number" name="mobile" required placeholder="Mobile.." class="form-control"/>
+            College
+            <input type="text" name="college" required placeholder="College.." class="form-control"/>
+            Course
+            <input type="text" name="course" required placeholder="Course.." class="form-control"/>
+            
+            Profile Picture
+            <input type="file" name="fu" class="form-control"/>
+            <input type="submit" value="Save" class="btn bg-dark text-light" />
+        </form>
+    </div>
+</div>
+{% endblock %}

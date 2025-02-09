@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block childpage %}
+<style>
+    .ra {
+        background: whitesmoke;
+        border-radius: 5px;
+        min-height: 400px;
+        width: 1100px;
+    }
+
+    .btn {
+        margin-top: 8px;
+    }
+</style>
+<div class="container-fluid  ra py-3 px-5">
+    <div class="row" style="background: whitesmoke;">
+        <div class="col-sm-12">
+            <h5 class="text-center py-1">Your valuablie <u> Feedback </u></h5>
+            <p class="text-center">
+                We appreceiate to your valuable feedback and we are always focused on it.
+            </p>
+        </div>
+    </div>
+    <div class="row px-5 " style="background: whitesmoke;">
+        <div class="col-sm-6 r py-2 fs-4">
+            <img src="{% static 'images/8.jfif'%}" alt="">
+        </div>
+        <div class="col-sm-6 rs py-2 ">
+            <b><u>Add</u> Your Feedback</b>
+            <div class="row" style="background: whitesmoke;">
+                <div class="col-sm-6">
+                    Name:<input type="text" placeholder=" Enter Your Name..." class="form-control" required />
+                </div>
+                <div class="col-sm-6">
+                    Your Image:<input type="file" class="form-control" required />
+                </div>
+                You're From:<input type="text" placeholder="Enter your College/Institute Name" class="form-control"
+                    required />
+                Your Feedback:<textarea placeholder="Your Valuable Feedback" class="form-control"></textarea><br />
+
+                <input type="submit" value="Save" class=" btn form-control" style="background: gray;">
+
+            </div>
+        </div>
+    </div>
+    {% endblock %}
